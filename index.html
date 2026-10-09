@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ИИ‑Лаборатория: Пробуем. Проверяем. Создаём</title>
+  <meta name="description" content="Обучающие программы по искусственному интеллекту для детей 7–10, 11–13 и 14–16 лет. Не «нажимать кнопки», а думать, проверять и создавать." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+</head>
+<body>
+
+  <!-- ======= Прелоадер ======= -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__bot">🤖</div>
+  </div>
+
+  <!-- ======= Прогресс скролла ======= -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ======= Шапка ======= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo">
+        <span class="logo__icon">🤖</span>
+        <span class="logo__text">ИИ<strong>‑Лаборатория</strong></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#about" class="nav__link">О программе</a>
+        <a href="#ages" class="nav__link">Возрастные группы</a>
+        <a href="#program" class="nav__link">Программа</a>
+        <a href="#gallery" class="nav__link">Галерея</a>
+        <a href="#contact" class="nav__link">Контакты</a>
+        <a href="#contact" class="btn btn--primary nav__cta">Записаться</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= Hero ======= -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="orb orb--1"></div>
+      <div class="orb orb--2"></div>
+      <div class="orb orb--3"></div>
+      <div class="hero__grid"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__content reveal">
+        <span class="badge">
+          <span class="badge__dot"></span> Набор открыт · 3 возрастные группы
+        </span>
+        <h1 class="hero__title">
+          ИИ‑Лаборатория
+          <span class="hero__title-gradient">Пробуем. Проверяем. Создаём.</span>
+        </h1>
+        <p class="hero__subtitle">
+          Мы не учим детей «нажимать кнопки в нейросети». Мы формируем мышление:
+          задавать точные вопросы, проверять информацию и доводить идеи
+          до настоящего проекта — с защитой перед аудиторией.
+        </p>
+        <div class="hero__actions">
+          <a href="#program" class="btn btn--primary btn--lg">Смотреть программу</a>
+          <a href="#ages" class="btn btn--ghost btn--lg">Выбрать возраст</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__num" data-count="3">0</span>
+            <span class="stat__label">возрастные группы</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-count="72">0</span>
+            <span class="stat__label">практических занятий</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-count="9">0</span>
+            <span class="stat__label">готовых проектов</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__visual reveal">
+        <div class="hero__photo-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80"
+            alt="Дети занимаются с технологиями в лаборатории"
+            class="hero__photo" loading="eager" />
+          <div class="hero__card hero__card--1 float">
+            <span class="hero__card-icon">🎨</span>
+            <div><b>Kandinsky</b><small>генерация картинок</small></div>
+          </div>
+          <div class="hero__card hero__card--2 float float--delay">
+            <span class="hero__card-icon">🧠</span>
+            <div><b>Критическое мышление</b><small>проверка фактов</small></div>
+          </div>
+          <div class="hero__card hero__card--3 float float--slow">
+            <span class="hero__card-icon">🎬</span>
+            <div><b>Свой проект</b><small>питч и защита</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Листать вниз">
+      <span class="hero__mouse"><span></span></span>
+    </a>
+  </section>
+
+  <!-- ======= О программе ======= -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">О программе</span>
+        <h2 class="section-title">Не «кнопки в нейросети», а <em>навыки на всю жизнь</em></h2>
+        <p class="section-desc">
+          Программа формирует три группы навыков, которые работают и с ИИ,
+          и без него — в школе, проектах и будущей профессии.
+        </p>
+      </div>
+      <div class="about__grid">
+        <article class="skill-card reveal" style="--i:0">
+          <div class="skill-card__icon" style="--c1:#818cf8;--c2:#6366f1">🧩</div>
+          <h3>Когнитивные и критические</h3>
+          <p>
+            Точные вопросы, проверка информации в независимых источниках,
+            структура данных, сравнение и выводы. База работы с любой
+            информацией — от школьного доклада до исследования.
+          </p>
+          <ul class="skill-card__list">
+            <li>Факт ≠ мнение</li>
+            <li>Два источника на каждый факт</li>
+            <li>Структура: списки, таблицы, планы</li>
+          </ul>
+        </article>
+        <article class="skill-card reveal" style="--i:1">
+          <div class="skill-card__icon" style="--c1:#f472b6;--c2:#ec4899">🎨</div>
+          <h3>Творческие</h3>
+          <p>
+            Персонажи, истории, иллюстрации, музыка. ИИ здесь — соавтор,
+            а не замена: идеи, выбор и правки всегда принадлежат ребёнку.
+          </p>
+          <ul class="skill-card__list">
+            <li>Промпт как инструмент</li>
+            <li>Итерации и доработка</li>
+            <li>Автор — тот, кто придумал и выбрал</li>
+          </ul>
+        </article>
+        <article class="skill-card reveal" style="--i:2">
+          <div class="skill-card__icon" style="--c1:#34d399;--c2:#10b981">🚀</div>
+          <h3>Проектные</h3>
+          <p>
+            Планирование, распределение ролей, тестирование на аудитории,
+            публичная защита. Навык, который ценят везде — от школы до стартапа.
+          </p>
+          <ul class="skill-card__list">
+            <li>Идея → план → шаги</li>
+            <li>Обратная связь и правки</li>
+            <li>Питч за 1–3 минуты</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="about__quote reveal">
+        <div class="about__quote-mark">“</div>
+        <p>
+          Главный итог: ребёнок перестаёт быть <b>потребителем</b> контента
+          и становится его <b>создателем</b> — который понимает, как работает
+          инструмент, умеет им управлять и знает, где его пределы.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Возрастные группы ======= -->
+  <section class="section ages" id="ages">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">Возрастные группы</span>
+        <h2 class="section-title">Программа <em>для каждого возраста</em> — своя</h2>
+        <p class="section-desc">
+          От «попробовать и удивиться» до «управлять, выбирать и объяснять».
+          Выберите возраст, чтобы увидеть подробную программу.
+        </p>
+      </div>
+
+      <div class="ages__grid">
+        <a href="#program" class="age-card reveal" data-age="7-10" style="--i:0;--c1:#fbbf24;--c2:#f59e0b">
+          <div class="age-card__media">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Дети 7–10 лет" loading="lazy" />
+            <span class="age-card__badge">7–10 лет</span>
+          </div>
+          <div class="age-card__body">
+            <h3>Младшая группа</h3>
+            <p class="age-card__slogan">«ИИ — это умный помощник, но ему нужны точные команды»</p>
+            <ul>
+              <li>🎮 Игровое знакомство с ИИ</li>
+              <li>🖼 Картинки, сказки, озвучка</li>
+              <li>🔍 Первая проверка фактов</li>
+              <li>🏆 Проект «Мини-фильм из 4 кадров»</li>
+            </ul>
+            <span class="age-card__link">Программа группы →</span>
+          </div>
+        </a>
+
+        <a href="#program" class="age-card reveal" data-age="11-13" style="--i:1;--c1:#818cf8;--c2:#6366f1">
+          <div class="age-card__media">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Подростки 11–13 лет" loading="lazy" />
+            <span class="age-card__badge">11–13 лет</span>
+          </div>
+          <div class="age-card__body">
+            <h3>Средняя группа</h3>
+            <p class="age-card__slogan">«Я — режиссёр, а ИИ — художник»</p>
+            <ul>
+              <li>✍️ Формула промпта и итерации</li>
+              <li>🎵 Текст, картинки и музыка</li>
+              <li>🕵️ Игра «Детектив: ошибки ИИ»</li>
+              <li>🏆 Комикс, зин и защита проекта</li>
+            </ul>
+            <span class="age-card__link">Программа группы →</span>
+          </div>
+        </a>
+
+        <a href="#program" class="age-card reveal" data-age="14-16" style="--i:2;--c1:#34d399;--c2:#10b981">
+          <div class="age-card__media">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Подростки 14–16 лет" loading="lazy" />
+            <span class="age-card__badge">14–16 лет</span>
+          </div>
+          <div class="age-card__body">
+            <h3>Старшая группа</h3>
+            <p class="age-card__slogan">«Если не можешь объяснить за 3 минуты — ты не понимаешь»</p>
+            <ul>
+              <li>⚙️ Токены, схемы промптов, RULE</li>
+              <li>📊 Факты, источники, границы ИИ</li>
+              <li>🛡 Этика, приватность, дипфейки</li>
+              <li>🏆 Питч «Мой ИИ-помощник»</li>
+            </ul>
+            <span class="age-card__link">Программа группы →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Программа (вкладки) ======= -->
+  <section class="section program" id="program">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">Программа обучения</span>
+        <h2 class="section-title">3 модуля в каждой группе, <em>9 проектов за курс</em></h2>
+        <p class="section-desc">
+          Каждый модуль — 8 занятий и осязаемый результат, который можно показать,
+          распечатать или отправить ссылкой.
+        </p>
+      </div>
+
+      <div class="tabs reveal" role="tablist">
+        <button class="tab is-active" data-tab="7-10" role="tab">👦 7–10 лет</button>
+        <button class="tab" data-tab="11-13" role="tab">🧑 11–13 лет</button>
+        <button class="tab" data-tab="14-16" role="tab">👨‍💻 14–16 лет</button>
+      </div>
+
+      <!-- ================= 7–10 ================= -->
+      <div class="tab-panel is-active" id="panel-7-10">
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">01</span>
+            <span class="module__title-wrap">
+              <span class="module__title">Знакомство с ИИ как с помощником</span>
+              <span class="module__focus">Фокус: что такое ИИ, как с ним общаться, проверять ответы и получать предсказуемый результат</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>Что такое ИИ.</b> Игра «Угадай животное» с чат-ботом, рисование в Kandinsky, игра «Живой ИИ». <i>ИИ — умный помощник, но ему нужны точные команды.</i></li>
+              <li><b>Точность запроса.</b> Карточка «Формула промпта»: Кто? + Что делает? + Где? + В каком стиле? <i>Чем больше деталей, тем точнее картинка.</i></li>
+              <li><b>ИИ как соавтор.</b> Коллективная сказка по кругу, иллюстрации в реальном времени, озвучка через TTSMaker.</li>
+              <li><b>Звук и голос.</b> Озвучка стихотворения разными голосами, аудио-поздравление, игра «Угадай мелодию».</li>
+              <li><b>Проверка фактов.</b> Игра «Найди ошибку», поиск нелогичных фактов. <i>ИИ может ошибаться — я всегда проверяю.</i></li>
+              <li><b>Хороший вопрос.</b> Сравнение плохого и хорошего промпта, секретная фраза «объясни как для 7-летнего».</li>
+              <li><b>Создание персонажа.</b> Школьный талисман по формуле промпта, набор эмоций-стикеров.</li>
+              <li><b>Объединение навыков.</b> Команды: градостроители, жители, писатели. Защита проекта «Мой мир».</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> «Паспорт помощника ИИ» — карточки с личными промпт-шаблонами и мини-презентация «Мой идеальный запрос».
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">02</span>
+            <span class="module__title-wrap">
+              <span class="module__title">ИИ как исследователь и аналитик</span>
+              <span class="module__focus">Фокус: работа с данными, поиск и проверка информации, сравнение, классификация, выводы</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>Как ИИ ищет информацию.</b> Сравнение ответов на один вопрос в разных формулировках, проверка источников.</li>
+              <li><b>Сортировка и категории.</b> Карточки «факт/мнение», сортировка новостей по темам.</li>
+              <li><b>Сравнение двух вещей.</b> «Сравни кошку и собаку по признакам», два города по 3 параметрам.</li>
+              <li><b>Поиск закономерностей.</b> Наборы картинок и слов: найти общее правило — цвета, формы, рифмы.</li>
+              <li><b>Проверка фактов.</b> «Найди 3 ошибки в тексте», проверь утверждение по 2 источникам.</li>
+              <li><b>Структурирование информации.</b> Превратить длинный текст в список, таблицу или план.</li>
+              <li><b>Работа с данными в таблице.</b> Таблица «объект — признаки — категория» вместе с ИИ.</li>
+              <li><b>Мини-исследование.</b> Тема, 5 фактов, проверка, оформление карточкой.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> одностраничное мини-исследование: вопрос → план → 3 проверенных факта → вывод + иллюстрация. Навык, который пригодится в школе.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">03</span>
+            <span class="module__title-wrap">
+              <span class="module__title">ИИ как соавтор и создатель проектов</span>
+              <span class="module__focus">Фокус: большая задача, распределение ролей, планирование, презентация</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>Планирование проекта.</b> План из 5 шагов, роли в команде. <i>План помогает не забыть важное.</i></li>
+              <li><b>Сбор идей и референсов.</b> Примеры: цвета, стили, персонажи + критерии выбора.</li>
+              <li><b>Создание персонажей и мира.</b> Карточка персонажа, 3 варианта от ИИ, выбор лучшего. <i>Я выбираю, ИИ предлагает.</i></li>
+              <li><b>Сценарий и раскадровка.</b> 4 кадра истории с описанием каждого.</li>
+              <li><b>Диалоги и озвучка.</b> Реплики, генерация озвучки, правки после прослушивания.</li>
+              <li><b>Сборка макета/коллажа.</b> Коллаж из сгенерированных картинок с подписями.</li>
+              <li><b>Тестирование на аудитории.</b> Показ одноклассникам, 3 отзыва, правки.</li>
+              <li><b>Финальная презентация.</b> Выступление 2–3 минуты + 3 слайда: картинка, факт, вывод.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> проект-мини-фильм: 4 кадра + факт + вывод + озвучка реплики. Видно, что придумал ребёнок, а где помог ИИ.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 11–13 ================= -->
+      <div class="tab-panel" id="panel-11-13">
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">01</span>
+            <span class="module__title-wrap">
+              <span class="module__title">ИИ‑помощник: учимся говорить на одном языке</span>
+              <span class="module__focus">Фокус: осознанный промпт без программирования — точность, стиль, итерации, проверка фактов</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>Как «учится» ИИ.</b> Игра «Холодно-горячо», эксперимент с расплывчатым и уточнённым промптом в Kandinsky.</li>
+              <li><b>Формула промпта.</b> Кто? Что делает? Где? Стиль? Настроение? <i>Промпт — как заказ в кафе.</i></li>
+              <li><b>Стиль как фильтр.</b> Один персонаж в 3 стилях от руки и генерация с явным указанием стиля.</li>
+              <li><b>Раскадровка и итерации.</b> Раскадровка на бумаге → промпты → генерация → вторая итерация. <i>Я — режиссёр, ИИ — художник.</i></li>
+              <li><b>Слова-соседи и смысл.</b> Карточки по смыслу, сравнение тона и деталей в ответах ИИ.</li>
+              <li><b>Рерайт для учёбы.</b> Абзац из учебника → пересказ «простыми словами» → сравнение 3 вариантов.</li>
+              <li><b>Детектив: ищем ошибки ИИ.</b> Поиск несоответствий, проверка по 2 надёжным источникам. <i>ИИ может врать красиво, а я — детектив.</i></li>
+              <li><b>Финальный проект: комикс + питч.</b> Раскадровка, промпты, генерация, 1-минутный питч.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> мини-комикс на 4–6 кадров с промптами, заметками «что не понравилось и как улучшил» и минутным питчем.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">02</span>
+            <span class="module__title-wrap">
+              <span class="module__title">ИИ‑соавтор: текст, звук, изображение</span>
+              <span class="module__focus">Фокус: комбинируем инструменты и выбираем, где ИИ полезен, а где важно человеческое решение</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>ИИ как Т9-предсказатель.</b> Продолжаем фразу по кругу, сравниваем с ответом ИИ. <i>ИИ угадывает следующее слово.</i></li>
+              <li><b>Черновик и редактор.</b> Идея → 3 абзаца от ИИ → маркеры: понравилось / банально / не подходит.</li>
+              <li><b>Разные роли для ИИ.</b> Одна тема — три промпта: «как учёный», «как сказка», «объясни другу за минуту».</li>
+              <li><b>Музыка по настроению.</b> «Бриф композитора» → генерация в Suno → обсуждение совпадений.</li>
+              <li><b>Сборка истории из трёх частей.</b> Текст / Картинка / Звук в таблице для каждого эпизода.</li>
+              <li><b>Шаблоны и повторы ИИ.</b> Ищем шаблонность и добавляем неожиданный элемент.</li>
+              <li><b>Кто автор?</b> Дискуссия «Чья это работа?» и свой критерий авторства. <i>Кисть — не художник.</i></li>
+              <li><b>Финальный проект: зин + питч.</b> Текст с правками, 2–4 картинки, музыкальный фон, защита решений.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> иллюстрированная история (зин): текст с правками подростка, 2–4 иллюстрации, музыкальный фон + питч с объяснением решений.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">03</span>
+            <span class="module__title-wrap">
+              <span class="module__title">ИИ‑проект: от проблемы до решения</span>
+              <span class="module__focus">Фокус: самостоятельный проект под реальную задачу и публичная защита</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>Идея → план.</b> Главный вопрос, разбиение задачи на 5 шагов, доработка плана под себя.</li>
+              <li><b>Факты и источники.</b> Справка от ИИ → проверка факта по 2 независимым источникам. <i>Один факт = два источника.</i></li>
+              <li><b>Одна идея — три формата.</b> Текст для плаката, сценарий видео, пост для соцсети.</li>
+              <li><b>Картинка на смысл.</b> «Броское», «точное», «неуместное» — группа выбирает, что работает на идею.</li>
+              <li><b>Когда ИИ не нужен.</b> Игра «ИИ или я?»: где важны личные чувства и опыт.</li>
+              <li><b>Классификация и признаки.</b> Teachable Machine: обучаем ИИ на примерах и проверяем ошибки.</li>
+              <li><b>Истории из кусочков.</b> Человек придумывает по смыслу, ИИ — по частым сочетаниям.</li>
+              <li><b>Финальная защита проекта.</b> Показ результата, промпты, проверки, что изменили после обратной связи.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> образовательный проект на свободную тему — плакат, презентация, видео-сценарий или интерактивная карта — с публичной защитой.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 14–16 ================= -->
+      <div class="tab-panel" id="panel-14-16">
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">01</span>
+            <span class="module__title-wrap">
+              <span class="module__title">Как работает ИИ: от токенов до гипотез</span>
+              <span class="module__focus">Фокус: понять, как «думает» ИИ, ставить задачи и критически оценивать ответы</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>ИИ — статистическая машина.</b> Игра «Угадай следующее слово» и сравнение с ИИ. <i>ИИ не думает — он угадывает.</i></li>
+              <li><b>Сила промпта: схема RULE.</b> Роль, Уточнение, Лимиты, Пример — и сравнение ответов.</li>
+              <li><b>Токенизация.</b> Мини-эксперимент «Разрежь пиццу»: считаем токены и обсуждаем потери.</li>
+              <li><b>ИИ как репетитор.</b> Ролевая игра и промпт для ИИ-репетитора. <i>Хороший репетитор задаёт вопросы, а не даёт ответы.</i></li>
+              <li><b>ИИ — генератор гипотез.</b> «10 болей школы», 3 решения от ИИ на каждую, голосование за лучшие.</li>
+              <li><b>Тон текста.</b> Одна фраза тремя голосами: мама, учитель, блогер + два поста в разных тонах.</li>
+              <li><b>Детекторы ИИ: честность важнее обмана.</b> Челлендж «Обмани детектор» и вывод: ИИ — черновик, финал — твой.</li>
+              <li><b>Питч проекта.</b> Репетиция с таймером: ясность, чёткость, креатив, ответы на вопросы.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> мини-идея проекта + промпт по RULE + переработанный черновик + 3-минутный питч.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">02</span>
+            <span class="module__title-wrap">
+              <span class="module__title">ИИ как соавтор и менеджер проекта</span>
+              <span class="module__focus">Фокус: задачи, процесс, факты, ограничения и структуры</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>ИИ — менеджер.</b> «Разбери гору»: карточки этапов — где поможет ИИ, а где только человек.</li>
+              <li><b>ИИ и факты: где он врёт.</b> Игра «Верю — не верю» и проверка в двух независимых источниках.</li>
+              <li><b>Редактура с ИИ.</b> Не «перепиши», а «сделай лучше»: критерии правки по карточкам.</li>
+              <li><b>ИИ и ограничения.</b> «Светофор запросов»: зелёный, жёлтый, красный.</li>
+              <li><b>Структурируем контент.</b> Списки приоритетов, таблицы «плюсы/минусы», чек-листы.</li>
+              <li><b>ИИ и визуал.</b> «Опиши, не показывай»: человек рисует по описанию — и ИИ интерпретирует тот же текст.</li>
+              <li><b>Работа с файлами.</b> Главная мысль, ключевые факты, вопросы, план действий — человек решает, что важно.</li>
+              <li><b>Мини-проект «карточка продукта».</b> Название, цель, шаги, факты с источниками, тон текста.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> карточка продукта + 3-минутная защита с обоснованием каждого пункта.
+            </div>
+          </div>
+        </div>
+
+        <div class="module">
+          <button class="module__head">
+            <span class="module__num">03</span>
+            <span class="module__title-wrap">
+              <span class="module__title">ИИ в реальной среде: презентации, питчи, этика и защита</span>
+              <span class="module__focus">Фокус: публичные выступления, данные, этика, защита от манипуляций</span>
+            </span>
+            <span class="module__chevron">▾</span>
+          </button>
+          <div class="module__body">
+            <ul class="topics">
+              <li><b>Питч с ИИ: продать идею за 60 секунд.</b> Три неудобных вопроса от партнёра — и от ИИ.</li>
+              <li><b>Данные и ИИ: откуда берутся ответы.</b> «Откуда это взялось»: вики, блоги, соцсети и предвзятость.</li>
+              <li><b>ИИ и эмоции.</b> «Эмоциональный детектор»: агрессия, забота, сарказм, манипуляция → нейтральный тон.</li>
+              <li><b>ИИ и приватность.</b> «Сейф и мусорка»: что можно, осторожно и нельзя отправлять в чат.</li>
+              <li><b>ИИ и креатив.</b> «Цепочка вдохновения»: идея → 3 вариации → личный поворот.</li>
+              <li><b>Мультимодульность.</b> «Формат-матч»: текст + картинка + голос под задачу.</li>
+              <li><b>Защита от дипфейков.</b> «Детектор фейков»: эмоциональные заголовки, отсутствие источников, противоречия.</li>
+              <li><b>Итоговый проект «Мой ИИ-помощник».</b> Цель, роли, ограничения, стиль общения, задачи, безопасность.</li>
+            </ul>
+            <div class="module__result">
+              <span>🏅 Результат:</span> презентация «Мой ИИ-помощник»: проблема → роль ИИ → как помогает → ограничения → как проверять результаты. Защита 3 минуты + 2 вопроса.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="program__note reveal">
+        💡 Навыки не привязаны к конкретной нейросети — они перенесутся на любой инструмент, который появится через год или пять.
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Галерея ======= -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">Атмосфера</span>
+        <h2 class="section-title">Как проходят <em>занятия</em></h2>
+        <p class="section-desc">Игры, эксперименты, командные проекты и настоящие презентации.</p>
+      </div>
+      <div class="gallery__grid">
+        <figure class="gallery__item reveal" style="--i:0">
+          <img src="https://images.unsplash.com/photo-1587691592099-24045742c181?auto=format&fit=crop&w=800&q=80" alt="Дети осваивают программирование" loading="lazy" />
+        </figure>
+        <figure class="gallery__item reveal" style="--i:1">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Робот и технологии" loading="lazy" />
+        </figure>
+        <figure class="gallery__item reveal" style="--i:2">
+          <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80" alt="Виртуальная реальность" loading="lazy" />
+        </figure>
+        <figure class="gallery__item reveal" style="--i:3">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Командная работа над проектом" loading="lazy" />
+        </figure>
+        <figure class="gallery__item reveal" style="--i:4">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Технологии искусственного интеллекта" loading="lazy" />
+        </figure>
+        <figure class="gallery__item reveal" style="--i:5">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Ребёнок учится с удовольствием" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Запись / контакты ======= -->
+  <section class="section contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info reveal">
+        <span class="section-tag">Запись в лабораторию</span>
+        <h2 class="section-title">Готовы <em>попробовать?</em></h2>
+        <p class="contact__desc">
+          Оставьте заявку — расскажем подробнее о программе, подберём группу
+          по возрасту и пригласим на первое пробное занятие.
+        </p>
+        <ul class="contact__list">
+          <li><span>📍</span> Очные занятия в мини-группах</li>
+          <li><span>🕐</span> Группы по возрасту: 7–10, 11–13, 14–16</li>
+          <li><span>🏅</span> Каждый модуль заканчивается проектом</li>
+          <li><span>💬</span> Родители получают отчёт по каждому модулю</li>
+        </ul>
+      </div>
+      <form class="contact__form reveal" id="signupForm" novalidate>
+        <div class="form-row">
+          <label>
+            <span>Имя родителя</span>
+            <input type="text" name="name" placeholder="Как вас зовут?" required />
+          </label>
+          <label>
+            <span>Телефон или Telegram</span>
+            <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required />
+          </label>
+        </div>
+        <label>
+          <span>Возраст ребёнка</span>
+          <select name="age" required>
+            <option value="" disabled selected>Выберите возраст</option>
+            <option>7–10 лет</option>
+            <option>11–13 лет</option>
+            <option>14–16 лет</option>
+          </select>
+        </label>
+        <label>
+          <span>Комментарий (необязательно)</span>
+          <textarea name="comment" rows="3" placeholder="Например: интересуется рисованием и роботами"></textarea>
+        </label>
+        <button type="submit" class="btn btn--primary btn--lg btn--full">Отправить заявку 🚀</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+        <div class="form-success" id="formSuccess" hidden>
+          ✅ Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ======= Футер ======= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#hero" class="logo">
+        <span class="logo__icon">🤖</span>
+        <span class="logo__text">ИИ<strong>‑Лаборатория</strong></span>
+      </a>
+      <p class="footer__slogan">Пробуем. Проверяем. Создаём.</p>
+      <nav class="footer__nav">
+        <a href="#about">О программе</a>
+        <a href="#ages">Возрастные группы</a>
+        <a href="#program">Программа</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <p class="footer__copy">© <span id="year"></span> ИИ‑Лаборатория. Дети создают, ИИ помогает.</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Наверх">↑</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
