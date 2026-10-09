@@ -36,19 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav');
 
+  const closeMenu = () => {
+    burger.classList.remove('is-open');
+    nav.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
   burger.addEventListener('click', () => {
     burger.classList.toggle('is-open');
     nav.classList.toggle('is-open');
     document.body.style.overflow = nav.classList.contains('is-open') ? 'hidden' : '';
   });
 
-  nav.querySelectorAll('a').forEach(link =>
-    link.addEventListener('click', () => {
-      burger.classList.remove('is-open');
-      nav.classList.remove('is-open');
-      document.body.style.overflow = '';
-    })
-  );
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
   /* ---------- Плавный скролл с учётом шапки ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -61,110 +61,40 @@ document.addEventListener('DOMContentLoaded', () => {
       const offset = document.querySelector('.header').offsetHeight;
       const top = target.getBoundingClientRect().top + window.scrollY - offset + 1;
       window.scrollTo({ top, behavior: 'smooth' });
-
-      // если клик по карточке возраста — открываем соответствующую вкладку
-      const age = anchor.dataset.age;
-      if (age) activateTab(age);
     });
   });
 
-  /* ---------- Вкладки возрастных групп ---------- */
-  const tabs = document.querySelectorAll('.tab');
-  const panels = document.querySelectorAll('.tab-panel');
+  /* ---------- Модальное окно записи ---------- */
+  const modal = document.getElementById('signupModal');
+  const fab = document.getElementById('fabOpen');
 
-  function activateTab(name) {
-    tabs.forEach(t => t.classList.toggle('is-active', t.dataset.tab === name));
-    panels.forEach(p => p.classList.toggle('is-active', p.id === `panel-${name}`));
-  }
-
-  tabs.forEach(tab => tab.addEventListener('click', () => activateTab(tab.dataset.tab)));
-
-  /* ---------- Аккордеон модулей ---------- */
-  const modules = document.querySelectorAll('.module');
-
-  function toggleModule(module) {
-    const body = module.querySelector('.module__body');
-    const isOpen = module.classList.contains('is-open');
-
-    // закрываем остальные в текущей панели
-    module.closest('.tab-panel').querySelectorAll('.module.is-open').forEach(m => {
-      if (m !== module) {
-        m.classList.remove('is-open');
-        m.querySelector('.module__body').style.maxHeight = null;
-      }
-    });
-
-    module.classList.toggle('is-open', !isOpen);
-    body.style.maxHeight = isOpen ? null : body.scrollHeight + 'px';
-  }
-
-  modules.forEach(m =>
-    m.querySelector('.module__head').addEventListener('click', () => toggleModule(m))
-  );
-
-  // открываем первый модуль в каждой панели по умолчанию
-  panels.forEach(panel => {
-    const first = panel.querySelector('.module');
-    if (first) {
-      first.classList.add('is-open');
-      const body = first.querySelector('.module__body');
-      requestAnimationFrame(() => {
-        if (panel.classList.contains('is-active')) {
-          body.style.maxHeight = body.scrollHeight + 'px';
-        }
-      });
-    }
-  });
-
-  // пересчёт высоты открытого аккордеона при смене вкладки
-  tabs.forEach(tab => tab.addEventListener('click', () => {
-    const panel = document.getElementById(`panel-${tab.dataset.tab}`);
-    const open = panel.querySelector('.module.is-open .module__body');
-    if (open) open.style.maxHeight = open.scrollHeight + 'px';
-  }));
-
-  /* ---------- Анимация счётчиков ---------- */
-  const counters = document.querySelectorAll('.stat__num');
-
-  const animateCounter = el => {
-    const target = +el.dataset.count;
-    const duration = 1400;
-    const start = performance.now();
-    const step = now => {
-      const p = Math.min((now - start) / duration, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+  const openModal = () => {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => modal.querySelector('input[name="name"]')?.focus(), 350);
   };
 
-  /* ---------- Reveal при скролле ---------- */
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      entry.target.querySelectorAll('.stat__num').forEach(c => {
-        if (!c.dataset.done) { c.dataset.done = '1'; animateCounter(c); }
-      });
-      io.unobserve(entry.target);
-    });
-  }, { threshold: 0.15 });
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
 
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // счётчики в hero могут быть выше вьюпорта при загрузке — наблюдаем hero отдельно
-  const heroIO = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.stat__num').forEach(c => {
-          if (!c.dataset.done) { c.dataset.done = '1'; animateCounter(c); }
-        });
-        heroIO.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  const heroSection = document.getElementById('hero');
-  if (heroSection) heroIO.observe(heroSection);
+  fab.addEventListener('click', openModal);
+  document.querySelectorAll('.js-open-modal').forEach(el =>
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      closeMenu();
+      openModal();
+    })
+  );
+  modal.querySelectorAll('[data-close]').forEach(el =>
+    el.addEventListener('click', closeModal)
+  );
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
 
   /* ---------- Форма заявки ---------- */
   const form = document.getElementById('signupForm');
@@ -179,7 +109,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Здесь можно подключить отправку на сервер / Telegram-бота / email-сервис
     success.hidden = false;
     form.reset();
-    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    setTimeout(() => (success.hidden = true), 8000);
+    setTimeout(() => {
+      success.hidden = true;
+      closeModal();
+    }, 4000);
   });
+
+  /* ---------- Видео ---------- */
+  const video = document.getElementById('promoVideo');
+  const videoOverlay = document.getElementById('videoOverlay');
+
+  if (video && videoOverlay) {
+    videoOverlay.addEventListener('click', () => {
+      videoOverlay.classList.add('is-hidden');
+      video.play().catch(() => {
+        // если файла video/promo.mp4 нет — просто показываем заглушку обратно
+        videoOverlay.classList.remove('is-hidden');
+      });
+    });
+    video.addEventListener('ended', () => videoOverlay.classList.remove('is-hidden'));
+  }
+
+  /* ---------- Reveal при скролле ---------- */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 });
