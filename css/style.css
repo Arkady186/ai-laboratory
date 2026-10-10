@@ -128,9 +128,15 @@ img { display: block; max-width: 100%; }
 .hero {
   min-height: 100vh; display: flex; align-items: center;
   padding: calc(var(--header-h) + 40px) 0 80px; position: relative; overflow: hidden;
-  background: linear-gradient(180deg, var(--bg) 55%, #121838 100%);
+  background: linear-gradient(180deg, var(--bg) 50%, #121838 90%, #131a3d 100%);
 }
-.hero__bg { position: absolute; inset: 0; z-index: 0; }
+.hero__bg {
+  position: absolute; inset: 0; z-index: 0;
+  /* плавное затухание всего фона (свечения + сетка) к нижней границе,
+     чтобы не было резкого среза при переходе к следующей секции */
+  -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 97%);
+  mask-image: linear-gradient(180deg, #000 62%, transparent 97%);
+}
 .hero__grid {
   position: absolute; inset: 0;
   background-image:
@@ -141,8 +147,8 @@ img { display: block; max-width: 100%; }
 }
 .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .5; animation: drift 14s ease-in-out infinite alternate; }
 .orb--1 { width: 480px; height: 480px; background: #4338ca; top: -120px; left: -120px; }
-.orb--2 { width: 400px; height: 400px; background: #0e7490; bottom: -100px; right: -80px; animation-delay: -4s; }
-.orb--3 { width: 260px; height: 260px; background: #9d174d; top: 40%; left: 55%; animation-delay: -8s; }
+.orb--2 { width: 400px; height: 400px; background: #0e7490; bottom: 4%; right: -80px; animation-delay: -4s; }
+.orb--3 { width: 260px; height: 260px; background: #9d174d; top: 36%; left: 55%; animation-delay: -8s; }
 @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(50px, -40px) scale(1.12); } }
 
 .hero__inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
@@ -250,7 +256,7 @@ img { display: block; max-width: 100%; }
 
 /* ---------- О программе ---------- */
 .about {
-  background: linear-gradient(180deg, #121838 0%, var(--bg) 55%);
+  background: linear-gradient(180deg, #131a3d 0%, #121838 18%, var(--bg) 60%);
   margin-top: -1px;
 }
 .about__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
