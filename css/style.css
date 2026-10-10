@@ -608,29 +608,99 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 760px) {
-  .section { padding: 80px 0; }
+  .section { padding: 72px 0; }
+  .section-head { margin-bottom: 42px; }
+  .section-desc { font-size: 15px; }
+
+  /* --- Шапка и меню --- */
   .nav {
-    position: fixed; top: var(--header-h); right: 0; width: min(320px, 84vw);
+    position: fixed; top: var(--header-h); right: 0; width: min(300px, 80vw);
     height: calc(100vh - var(--header-h));
-    flex-direction: column; align-items: flex-start; gap: 8px;
+    flex-direction: column; align-items: stretch; gap: 4px;
     background: rgba(11,14,26,.97); backdrop-filter: blur(16px);
-    padding: 32px 28px; border-left: 1px solid var(--border);
+    padding: 28px 24px calc(28px + env(safe-area-inset-bottom)); border-left: 1px solid var(--border);
     transform: translateX(100%); transition: transform .4s cubic-bezier(.7,0,.3,1);
   }
   .nav.is-open { transform: none; }
-  .nav__link { font-size: 18px; padding: 10px 0; }
-  .nav__cta { margin-top: 16px; }
-  .burger { display: flex; z-index: 1001; }
-  .hero { padding-top: calc(var(--header-h) + 24px); }
-  .hero__stats { gap: 28px; }
-  .form-row { grid-template-columns: 1fr; }
-  .about__quote { padding: 30px 24px; }
-  .gallery__grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
-  .fab { right: 16px; bottom: 16px; padding: 14px 22px; font-size: 14.5px; }
-  .to-top { right: 16px; bottom: 84px; }
-  .video__frame { aspect-ratio: 4 / 3; }
-  .video__play { width: 72px; height: 72px; font-size: 26px; }
-  .modal__dialog { padding: 30px 22px; }
+  .nav__link { font-size: 17px; padding: 13px 0; border-bottom: 1px dashed var(--border); }
+  .nav__link::after { display: none; }
+  .nav__cta { margin-top: 20px; justify-content: center; }
+  .burger { display: flex; z-index: 1001; padding: 10px; }
+  .logo__text { font-size: 17px; }
+
+  /* --- Hero --- */
+  .hero { padding: calc(var(--header-h) + 20px) 0 56px; }
+  .hero__inner { gap: 36px; }
+  .hero__title { font-size: clamp(27px, 8.2vw, 40px); line-height: 1.16; margin-bottom: 16px; }
+  .hero__subtitle { font-size: 15px; margin-bottom: 26px; }
+  .hero__actions { flex-direction: column; gap: 12px; margin-bottom: 34px; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero__stats { gap: 14px; justify-content: space-between; }
+  .stat__num { font-size: 24px; }
+  .stat__label { font-size: 11.5px; }
+  .hero__visual { max-width: 100%; }
+  .hero__photo { aspect-ratio: 1 / 1.08; border-radius: 22px; }
+  .hero__scroll { display: none; }
+  .hero__card { padding: 9px 12px; font-size: 11.5px; border-radius: 12px; gap: 8px; }
+  .hero__card-icon { font-size: 17px; }
+  .hero__card b { font-size: 12px; }
+  .hero__card small { font-size: 10.5px; }
+  .hero__card--1 { top: 10px; left: 8px; }
+  .hero__card--2 { top: 74px; right: 8px; }
+  .hero__card--3 { bottom: 12px; left: 8px; }
+  .hero__card--4, .hero__card--5 { display: none; }
+
+  /* --- Секции --- */
+  .skill-card { padding: 26px 22px; }
+  .skill-card__icon { width: 54px; height: 54px; font-size: 26px; }
+  .about__quote { padding: 28px 20px; margin-top: 40px; }
+  .about__quote p { font-size: 15.5px; }
+  .age-card__body { padding: 20px 20px 24px; }
+  .thesis-card { padding: 26px 20px; }
+  .program__note { padding: 20px 18px; font-size: 14.5px; }
+  .gallery__grid { grid-template-columns: 1fr; grid-auto-rows: 230px; gap: 14px; }
+  .contact__list li { font-size: 13.5px; padding: 12px 14px; }
+  .contact__side-card { padding: 22px 20px; }
+  .footer { padding: 42px 0 32px; }
+  .footer__nav { gap: 14px; }
+  .footer__nav a { font-size: 13.5px; }
+
+  /* --- Формы: 16px, чтобы iOS не приближал экран --- */
+  .modal__dialog input,
+  .modal__dialog select,
+  .modal__dialog textarea { font-size: 16px; padding: 12px 14px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+
+  /* --- Видео --- */
+  .video__frame { aspect-ratio: 4 / 3; border-radius: 18px; }
+  .video__play { width: 68px; height: 68px; font-size: 24px; }
+  .video__hint { font-size: 14px; padding: 0 14px; }
+
+  /* --- Плавающие кнопки --- */
+  .fab {
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    padding: 13px 20px; font-size: 14px;
+  }
+  .to-top {
+    right: 14px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    width: 44px; height: 44px; font-size: 17px;
+  }
+
+  /* --- Модалка --- */
+  .modal { padding: 12px; }
+  .modal__dialog { padding: 26px 20px; border-radius: 18px; }
+  .modal__dialog h3 { font-size: 19px; }
+  .modal__dialog > p { font-size: 14px; margin-bottom: 18px; }
+}
+
+@media (max-width: 380px) {
+  .hero__title { font-size: 25px; }
+  .stat__num { font-size: 21px; }
+  .stat__label { font-size: 10.5px; }
+  .hero__card--2 { top: 64px; }
+  .section { padding: 60px 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
