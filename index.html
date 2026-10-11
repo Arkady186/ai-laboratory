@@ -278,9 +278,9 @@
             <li>🧩 Формула простого промпта: кто + что делает + где + стиль</li>
             <li>🔍 Первая проверка: ИИ может ошибаться — я всегда проверяю</li>
           </ul>
-          <div class="thesis-card__result">
-            🏁 Итог курса: свой мини-фильм из 4 кадров и презентация «Мой идеальный запрос»
-          </div>
+          <button type="button" class="thesis-card__btn js-open-summary" data-summary="7-10">
+            📄 Краткое резюме
+          </button>
         </article>
 
         <article class="thesis-card reveal" style="--i:1;--c1:#818cf8;--c2:#6366f1">
@@ -293,9 +293,9 @@
             <li>🎵 Текст, картинки и музыка в одном проекте</li>
             <li>🕵️ Игра «Детектив»: находим ошибки ИИ и проверяем факты</li>
           </ul>
-          <div class="thesis-card__result">
-            🏁 Итог курса: комикс, иллюстрированный зин и защита проекта перед группой
-          </div>
+          <button type="button" class="thesis-card__btn js-open-summary" data-summary="11-13">
+            📄 Краткое резюме
+          </button>
         </article>
 
         <article class="thesis-card reveal" style="--i:2;--c1:#34d399;--c2:#10b981">
@@ -308,9 +308,9 @@
             <li>📊 Факты и источники: где ИИ ошибается и когда он вообще не нужен</li>
             <li>🛡 Этика и безопасность: приватность, тон текста, защита от дипфейков</li>
           </ul>
-          <div class="thesis-card__result">
-            🏁 Итог курса: проект «Мой ИИ-помощник» и питч с защитой за 3 минуты
-          </div>
+          <button type="button" class="thesis-card__btn js-open-summary" data-summary="14-16">
+            📄 Краткое резюме
+          </button>
         </article>
       </div>
 
@@ -478,6 +478,16 @@
           ✅ Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- ======= Модальное окно: краткое резюме ======= -->
+  <div class="modal" id="summaryModal" aria-hidden="true">
+    <div class="modal__overlay" data-close-summary></div>
+    <div class="modal__dialog modal__dialog--wide" role="dialog" aria-modal="true" aria-label="Краткое резюме">
+      <button class="modal__close" data-close-summary aria-label="Закрыть">✕</button>
+      <h3 id="summaryTitle">Краткое резюме</h3>
+      <div id="summaryContent"></div>
     </div>
   </div>
 

@@ -386,6 +386,16 @@ img { display: block; max-width: 100%; }
   border: 1px solid rgba(16,185,129,.3);
   font-size: 14px; font-weight: 600; line-height: 1.5;
 }
+.thesis-card__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 13px 22px; border-radius: 999px; border: 0; cursor: pointer;
+  font-family: var(--font-body); font-weight: 800; font-size: 14.5px; color: #fff;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .35);
+  transition: transform .25s, box-shadow .25s;
+}
+.thesis-card__btn:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0, 0, 0, .45); }
+.thesis-card__btn:active { transform: translateY(-1px); }
 
 /* ---------- Галерея ---------- */
 .gallery__grid {
@@ -586,6 +596,32 @@ img { display: block; max-width: 100%; }
 .modal__close:hover { background: rgba(236,72,153,.2); transform: rotate(90deg); }
 .modal__dialog h3 { font-family: var(--font-display); font-size: 22px; margin-bottom: 8px; }
 .modal__dialog > p { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; }
+
+/* ---------- Модалка: краткое резюме ---------- */
+.modal__dialog--wide { width: min(680px, 100%); }
+.summary-group {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 18px 20px; border-radius: var(--radius-sm);
+  background: var(--surface); border: 1px solid var(--border);
+  margin-bottom: 14px;
+  transition: border-color .25s, transform .25s;
+}
+.summary-group:hover { border-color: rgba(99,102,241,.45); transform: translateX(4px); }
+.summary-group__icon {
+  flex-shrink: 0; width: 46px; height: 46px; display: grid; place-items: center;
+  font-size: 22px; border-radius: 13px;
+  background: linear-gradient(135deg, rgba(99,102,241,.25), rgba(34,211,238,.18));
+  border: 1px solid var(--border);
+}
+.summary-group h4 { font-size: 15.5px; margin-bottom: 4px; }
+.summary-group p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+.summary-final {
+  margin-top: 20px; padding: 20px 22px; border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(16,185,129,.14), rgba(34,211,238,.1));
+  border: 1px solid rgba(16,185,129,.35);
+  font-size: 15px; font-weight: 600; line-height: 1.65;
+}
+.summary-final b { color: var(--green); }
 
 /* ---------- Reveal-анимации ---------- */
 .reveal { opacity: 0; transform: translateY(34px); transition: opacity .7s ease, transform .7s ease; transition-delay: calc(var(--i, 0) * .12s); }
