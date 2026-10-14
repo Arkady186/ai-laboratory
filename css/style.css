@@ -624,6 +624,46 @@ img { display: block; max-width: 100%; }
 }
 .summary-final b { color: var(--green); }
 
+/* ---------- Контакты: карточка телефона ---------- */
+.contact__phone-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px 26px; margin-top: 8px;
+  transition: border-color .25s, transform .25s;
+}
+.contact__phone-card:hover { border-color: rgba(99,102,241,.45); transform: translateY(-3px); }
+.contact__phone-icon { font-size: 30px; flex-shrink: 0; }
+.contact__phone-num {
+  display: block; font-family: var(--font-display); font-weight: 700; font-size: 23px;
+  background: linear-gradient(90deg, var(--primary-light), var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-decoration: none; line-height: 1.2;
+}
+.contact__phone-name { color: var(--text-muted); font-size: 13.5px; display: block; margin-top: 4px; }
+
+/* ---------- Модалка: телефон ---------- */
+#signupModal .modal__dialog { text-align: center; }
+.contact-modal__icon {
+  width: 74px; height: 74px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 32px;
+  margin: 0 auto 18px;
+  background: linear-gradient(135deg, rgba(99,102,241,.25), rgba(34,211,238,.18));
+  border: 1px solid var(--border);
+  animation: playPulse 2.4s ease infinite;
+}
+.contact-modal__phone {
+  display: block; font-family: var(--font-display); font-weight: 700; font-size: 30px;
+  background: linear-gradient(90deg, var(--primary-light), var(--accent), var(--pink));
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-decoration: none; margin: 16px 0 6px;
+  animation: shimmer 6s linear infinite;
+}
+.contact-modal__name {
+  color: var(--text-muted); font-size: 15px; font-weight: 600; margin-bottom: 26px;
+}
+.contact-actions { display: grid; gap: 12px; }
+
 /* ---------- Reveal-анимации ---------- */
 .reveal { opacity: 0; transform: translateY(34px); transition: opacity .7s ease, transform .7s ease; transition-delay: calc(var(--i, 0) * .12s); }
 .reveal.is-visible { opacity: 1; transform: none; }
@@ -736,6 +776,10 @@ img { display: block; max-width: 100%; }
   .modal__dialog { padding: 26px 20px; border-radius: 18px; }
   .modal__dialog h3 { font-size: 19px; }
   .modal__dialog > p { font-size: 14px; margin-bottom: 18px; }
+  .contact__phone-card { padding: 18px 20px; }
+  .contact__phone-num { font-size: 19px; }
+  .contact-modal__phone { font-size: 25px; }
+  .contact-modal__icon { width: 62px; height: 62px; font-size: 27px; }
 }
 
 @media (max-width: 380px) {

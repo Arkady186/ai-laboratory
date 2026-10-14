@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
 </head>
 <body>
@@ -361,20 +361,16 @@
           Короткий ролик о том, как проходят занятия: играем, пробуем, проверяем — и создаём.
         </p>
       </div>
-      <!--
-        ЗАМЕТКА: положите файл видео в папку "video" рядом с index.html
-        и назовите его promo.mp4 — он появится здесь автоматически.
-      -->
       <div class="video__frame reveal">
-        <video id="promoVideo" controls preload="none"
+        <video id="promoVideo" controls preload="metadata"
                poster="img/video-poster.jpg">
-          <source src="video/promo.mp4" type="video/mp4" />
+          <source src="20429959137861.mp4" type="video/mp4" />
         </video>
         <div class="video__overlay" id="videoOverlay">
           <div class="video__play">▶</div>
           <p class="video__hint">
-            Здесь будет ваше 30-секундное видео.<br />
-            <small>Добавьте файл <b>video/promo.mp4</b> на сайт — и он откроется прямо здесь.</small>
+            Нажмите ▶ и посмотрите, как проходят занятия<br />
+            <small>30 секунд из нашей лаборатории</small>
           </p>
         </div>
       </div>
@@ -397,9 +393,16 @@
           <li><span>🏅</span> Каждый модуль заканчивается проектом</li>
           <li><span>💬</span> Родители получают отчёт по каждому модулю</li>
         </ul>
-        <button type="button" class="btn btn--primary btn--lg js-open-modal" style="margin-top: 26px;">
-          Записаться 🚀
-        </button>
+        <div class="contact__phone-card">
+          <span class="contact__phone-icon">📞</span>
+          <div>
+            <a href="tel:+79114165805" class="contact__phone-num">+7 911 416-58-05</a>
+            <span class="contact__phone-name">Рамиль — позвоните, ответим на все вопросы</span>
+          </div>
+        </div>
+        <a href="tel:+79114165805" class="btn btn--primary btn--lg" style="margin-top: 22px;">
+          Позвонить сейчас 📞
+        </a>
       </div>
       <div class="contact__side reveal">
         <div class="contact__side-card">
@@ -414,8 +417,8 @@
           <span class="contact__side-icon">📱</span>
           <h3>Остались вопросы?</h3>
           <p>
-            Нажмите кнопку «Записаться» или на плавающую кнопку справа снизу —
-            откроется короткая форма, заполнив которую, мы вам перезвоним.
+            Нажмите кнопку «Позвонить сейчас» или на плавающую кнопку справа снизу —
+            и вы увидите номер. Рамиль ответит на все вопросы и подберёт группу по возрасту.
           </p>
         </div>
       </div>
@@ -444,40 +447,18 @@
   <!-- ======= Всплывающая форма записи ======= -->
   <div class="modal" id="signupModal" aria-hidden="true">
     <div class="modal__overlay" data-close></div>
-    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Запись в ИИ‑Лабораторию">
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Позвоните нам">
       <button class="modal__close" data-close aria-label="Закрыть">✕</button>
-      <h3>Запись в ИИ‑Лабораторию</h3>
-      <p>Оставьте заявку — подберём группу по возрасту и пригласим на пробное занятие.</p>
-      <form id="signupForm" novalidate>
-        <div class="form-row">
-          <label>
-            <span>Имя родителя</span>
-            <input type="text" name="name" placeholder="Как вас зовут?" required />
-          </label>
-          <label>
-            <span>Телефон или Telegram</span>
-            <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required />
-          </label>
-        </div>
-        <label>
-          <span>Возраст ребёнка</span>
-          <select name="age" required>
-            <option value="" disabled selected>Выберите возраст</option>
-            <option>7–10 лет</option>
-            <option>11–13 лет</option>
-            <option>14–16 лет</option>
-          </select>
-        </label>
-        <label>
-          <span>Комментарий (необязательно)</span>
-          <textarea name="comment" rows="3" placeholder="Например: интересуется рисованием и роботами"></textarea>
-        </label>
-        <button type="submit" class="btn btn--primary btn--lg btn--full">Отправить заявку 🚀</button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
-        <div class="form-success" id="formSuccess" hidden>
-          ✅ Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.
-        </div>
-      </form>
+      <div class="contact-modal__icon">📞</div>
+      <h3>Позвоните нам</h3>
+      <p>Рамиль ответит на все вопросы и подберёт группу по возрасту.</p>
+      <a href="tel:+79114165805" class="contact-modal__phone">+7 911 416-58-05</a>
+      <div class="contact-modal__name">Рамиль</div>
+      <div class="contact-actions">
+        <a href="tel:+79114165805" class="btn btn--primary btn--lg btn--full">Позвонить сейчас</a>
+        <a href="https://wa.me/79114165805" class="btn btn--ghost btn--lg btn--full">Написать в WhatsApp</a>
+      </div>
+      <p class="form-note">Звоните в любое время — будем рады познакомиться</p>
     </div>
   </div>
 
@@ -492,11 +473,11 @@
   </div>
 
   <!-- ======= Плавающие кнопки ======= -->
-  <button class="fab" id="fabOpen" aria-label="Открыть форму записи">
-    <span class="fab__icon">📝</span> Записаться
+  <button class="fab" id="fabOpen" aria-label="Позвонить">
+    <span class="fab__icon">📞</span> Позвонить
   </button>
   <button class="to-top" id="toTop" aria-label="Наверх">↑</button>
 
-  <script src="js/script.js?v=4"></script>
+  <script src="js/script.js?v=5"></script>
 </body>
 </html>

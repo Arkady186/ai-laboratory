@@ -202,25 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', closeSummary)
   );
 
-  /* ---------- Форма заявки ---------- */
-  const form = document.getElementById('signupForm');
-  const success = document.getElementById('formSuccess');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    // Здесь можно подключить отправку на сервер / Telegram-бота / email-сервис
-    success.hidden = false;
-    form.reset();
-    setTimeout(() => {
-      success.hidden = true;
-      closeModal();
-    }, 4000);
-  });
-
   /* ---------- Видео ---------- */
   const video = document.getElementById('promoVideo');
   const videoOverlay = document.getElementById('videoOverlay');
